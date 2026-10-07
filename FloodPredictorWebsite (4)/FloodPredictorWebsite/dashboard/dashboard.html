@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jakarta Flood Prediction Dashboard</title>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../components_assets/component.css">
+    <link rel="stylesheet" href="dashboard.css">
+
+    <style>
+        /* Base Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--gray-100);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="../landing/index.html" class="navbar-logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M12 3C12 3 8.5 6 8.5 9C8.5 10.933 10.067 12.5 12 12.5C13.933 12.5 15.5 10.933 15.5 9C15.5 6 12 3 12 3Z"
+                    fill="currentColor" />
+                <path
+                    d="M17.5 13C17.5 13 15.5 15 15.5 16.5C15.5 17.605 16.395 18.5 17.5 18.5C18.605 18.5 19.5 17.605 19.5 16.5C19.5 15 17.5 13 17.5 13Z"
+                    fill="currentColor" />
+                <path
+                    d="M6.5 13C6.5 13 4.5 15 4.5 16.5C4.5 17.605 5.395 18.5 6.5 18.5C7.605 18.5 8.5 17.605 8.5 16.5C8.5 15 6.5 13 6.5 13Z"
+                    fill="currentColor" />
+                <path
+                    d="M12 14C12 14 10 16 10 17.5C10 18.605 10.895 19.5 12 19.5C13.105 19.5 14 18.605 14 17.5C14 16 12 14 12 14Z"
+                    fill="currentColor" />
+            </svg>
+        </a>
+        <button class="navbar-toggle" aria-label="Toggle navigation">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 6H21M3 12H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+        </button>
+        <ul class="navbar-nav">
+            <li><a href="../landing/index.html">Home</a></li>
+            <li><a href="../dashboard/dashboard.html">Dashboard</a></li>
+            <li><a href="../history/history.html">History</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero" id="dashboard-hero" style="margin-top: 60px;">
+        <div>
+            <p style="font-size: var(--font-xs); margin-bottom: 5px;">Current Risk Status - Central Jakarta</p>
+            <h1 id="hero-title">Select A District</h1>
+            <p id="hero-description">Please click on the map or search for your district</p>
+        </div>
+        <div class="status-icon" id="hero-status-icon">😊</div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="🔍 Search district in Central Jakarta...">
+        </div>
+
+        <!-- Map Section -->
+        <div class="map-section">
+            <div class="map-header">
+                <h2>Central Jakarta Flood Map</h2>
+                <div class="last-updated">Last Updated : <span id="lastUpdate">10 seconds ago</span></div>
+            </div>
+
+            <!-- Interactive District Map -->
+            <div class="district-map-container">
+                <div class="district-grid">
+                    <!-- Row 1 -->
+                    <div class="district-cell" data-district="Kemayoran" id="map-kemayoran">
+                        <div class="district-name">Kemayoran</div>
+                        <div class="district-emoji">⏳</div>
+                    </div>
+                    <div class="district-cell" data-district="Cempaka Putih" id="map-cempaka-putih">
+                        <div class="district-name">Cempaka Putih</div>
+                        <div class="district-emoji">⏳</div>
+                    </div>
+                    <div class="district-cell" data-district="Johar Baru" id="map-johar-baru">
+                        <div class="district-name">Johar Baru</div>
+                        <div class="district-emoji">⏳</div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="district-cell" data-district="Gambir" id="map-gambir">
+                        <div class="district-name">Gambir</div>
+                        <div class="district-emoji">⏳</div>
+                    </div>
+                    <div class="district-cell" data-district="Menteng" id="map-menteng">
+                        <div class="district-name">Menteng</div>
+                        <div class="district-emoji">⏳</div>
+                    </div>
+                    <div class="district-cell" data-district="Senen" id="map-senen">
+                        <div class="district-name">Senen</div>
+                        <div class="district-emoji">⏳</div>
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="district-cell" data-district="Tanah Abang" id="map-tanah-abang">
+                        <div class="district-name">Tanah Abang</div>
+                        <div class="district-emoji">⏳</div>
+                    </div>
+                    <div class="district-cell district-wide" data-district="Sawah Besar" id="map-sawah-besar">
+                        <div class="district-name">Sawah Besar</div>
+                        <div class="district-emoji">⏳</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Legend -->
+            <div class="map-legend">
+                <div class="legend-item">
+                    <span class="legend-color" style="background: #10b981;"></span>
+                    <span>Low Risk (0-24%)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background: #f59e0b;"></span>
+                    <span>Medium Risk (25-49%)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background: #f97316;"></span>
+                    <span>High Risk (50-74%)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background: #ef4444;"></span>
+                    <span>Critical Risk (75-100%)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Stats Section -->
+        <div class="quick-stats">
+            <h2 style="font-size: var(--font-xl); margin-bottom: 10px; color: var(--gray-900);">Quick Stats - Real-time
+                Indicators</h2>
+            <div class="stats-grid">
+                <div class="stat-card risk-medium">
+                    <div class="stat-icon">⚠️</div>
+                    <div class="stat-value">MEDIUM</div>
+                    <div class="stat-label">Flood Risk Level</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">🌧️</div>
+                    <div class="stat-value">72%</div>
+                    <div class="stat-label">Monsoon Intensity</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">🏗️</div>
+                    <div class="stat-value">52%</div>
+                    <div class="stat-label">Drainage Efficiency</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">🌳</div>
+                    <div class="stat-value">65%</div>
+                    <div class="stat-label">Wetland Loss</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">🚨</div>
+                    <div class="stat-value">12</div>
+                    <div class="stat-label">Active Alerts</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-value">45,000</div>
+                    <div class="stat-label">Population at Risk</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('environmental')">Environmental</button>
+            <button class="tab" onclick="switchTab('infrastructure')">Infrastructure</button>
+            <button class="tab" onclick="switchTab('urban')">Urban & Social</button>
+            <button class="tab" onclick="switchTab('governance')">Governance</button>
+        </div>
+
+        <!-- Details Section -->
+        <div class="details-section">
+            <!-- Environmental Tab -->
+            <div id="environmental" class="tab-content active">
+                <div class="detail-category">
+                    <h3 class="category-title">🌦️ Climate & Weather Factors</h3>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Monsoon Intensity</div>
+                        <div class="detail-value">
+                            <div class="progress-bar">
+                                <div class="progress-fill danger" style="width: 72%;"></div>
+                            </div>
+                            <span class="value-text">72%</span>
+                            <span class="badge badge-danger">High</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Climate Change Impact</div>
+                        <div class="detail-value">
+                            <div class="progress-bar">
+                                <div class="progress-fill warning" style="width: 68%;"></div>
+                            </div>
+                            <span class="value-text">68%</span>
+                            <span class="badge badge-warning">Elevated</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-category">
+                    <h3 class="category-title">🏞️ Topography & Natural Features</h3>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Topography Drainage</div>
+                        <div class="detail-value">
+                            <div class="progress-bar">
+                                <div class="progress-fill warning" style="width: 45%;"></div>
+                            </div>
+                            <span class="value-text">45%</span>
+                            <span class="badge badge-warning">Poor</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Siltation Level</div>
+                        <div class="detail-value">
+                            <div class="progress-bar">
+                                <div class="progress-fill danger" style="width: 78%;"></div>
+                            </div>
+                            <span class="value-text">78%</span>
+                            <span class="badge badge-danger">Critical</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Wetland Loss</div>
+                        <div class="detail-value">
+                            <div class="progress-bar">
+                                <div class="progress-fill danger" style="width: 65%;"></div>
+                            </div>
+                            <span class="value-text">65%</span>
+                            <span class="badge badge-danger">High</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-category">
+                    <h3 class="category-title">🌊 Watershed & River Systems</h3>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Watersheds Condition</div>
+                        <div class="detail-value">
+                            <div class="progress-bar">
+                                <div class="progress-fill warning" style="width: 52%;"></div>
+                            </div>
+                            <span class="value-text">52%</span>
+                            <span class="badge badge-warning">Moderate</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="detail-label">River Management Score</div>
+                        <div class="detail-value">
+                            <div class="progress-bar">
+                                <div class="progress-fill warning" style="width: 48%;"></div>
+                            </div>
+                            <span class="value-text">48%</span>
+                            <span class="badge badge-warning">Needs Improvement</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Infrastructure Tab -->
+            <div id="infrastructure" class="tab-content">
+                <div class="detail-category">
+                    <h3 class="category-title">🏗️ Critical Infrastructure</h3>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Drainage System Efficiency</div>
+                        <div class="detail-value">
+                            <div class="progress-bar">
+                                <div class="progress-fill warning" style="width: 52%;"></div>
+                            </div>
+                            <span class="value-text">52%</span>
+                            <span class="badge badge-warning">Inadequate</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Dams Quality</div>
+                        <div class="detail-value">
+                            <div class="progress-bar">
+                                <div class="progress-fill good" style="width: 72%;"></div>
+                            </div>
+                            <span class="value-text">72%</span>
+                            <span class="badge badge-good">Good</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Deteriorating Infrastructure</div>
+                        <div class="detail-value">
+                            <div class="progress-bar">
+                                <div class="progress-fill danger" style="width: 68%;"></div>
+                            </div>
+                            <span class="value-text">68%</span>
+                            <span class="badge badge-danger">Concerning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Urban & Social Tab -->
+            <div id="urban" class="tab-content">
+                <div class="detail-category">
+                    <h3 class="category-title">🏙️ Urban Development</h3>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Urbanization Rate</div>
+                        <div class="detail-value">
+                            <div class="progress-bar">
+                                <div class="progress-fill danger" style="width: 88%;"></div>
+                            </div>
+                            <span class="value-text">88%</span>
+                            <span class="badge badge-danger">Very High</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Encroachments</div>
+                        <div class="detail-value">
+                            <div class="progress-bar">
+                                <div class="progress-fill danger" style="width: 75%;"></div>
+                            </div>
+                            <span class="value-text">75%</span>
+                            <span class="badge badge-danger">Critical</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-category">
+                    <h3 class="category-title">👥 Population & Density</h3>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Population Score</div>
+                        <div class="detail-value">
+                            <div class="progress-bar">
+                                <div class="progress-fill danger" style="width: 82%;"></div>
+                            </div>
+                            <span class="value-text">82%</span>
+                            <span class="badge badge-danger">High Density</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Governance Tab -->
+            <div id="governance" class="tab-content">
+                <div class="detail-category">
+                    <h3 class="category-title">📊 Planning & Policy</h3>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Inadequate Planning</div>
+                        <div class="detail-value">
+                            <div class="progress-bar">
+                                <div class="progress-fill danger" style="width: 62%;"></div>
+                            </div>
+                            <span class="value-text">62%</span>
+                            <span class="badge badge-danger">Poor</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="detail-label">Political Factors Impact</div>
+                        <div class="detail-value">
+                            <div class="progress-bar">
+                                <div class="progress-fill warning" style="width: 58%;"></div>
+                            </div>
+                            <span class="value-text">58%</span>
+                            <span class="badge badge-warning">Moderate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

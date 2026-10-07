@@ -1,0 +1,466 @@
+{
+  "districts": [
+    {
+      "id": "menteng",
+      "name": "Menteng",
+      "quickStats": {
+        "monsoonIntensity": 10,
+        "drainageEfficiency": 62,
+        "wetlandLoss": 65,
+        "activeAlerts": 8,
+        "populationAtRisk": 15200
+      },
+      "parameters": {
+        "environmental": {
+          "climateWeather": {
+            "monsoonIntensity": 10,
+            "climateChange": 10
+          },
+          "topography": {
+            "topographyDrainage": 10,
+            "siltation": 75,
+            "wetlandLoss": 65
+          },
+          "watershed": {
+            "watersheds": 1,
+            "riverManagement": 1
+          }
+        },
+        "infrastructure": {
+          "critical": {
+            "drainageSystem": 100,
+            "damsQuality": 100,
+            "deterioratingInfrastructure": 10
+          }
+        },
+        "urbanSocial": {
+          "urbanDevelopment": {
+            "urbanization": 10,
+            "encroachments": 10
+          },
+          "population": {
+            "populationScore": 82
+          }
+        },
+        "governance": {
+          "disasterPreparedness": {
+            "ineffectiveDisasterPreparedness": 10
+          },
+          "planningPolicy": {
+            "inadequatePlanning": 62,
+            "politicalFactors": 10
+          }
+        }
+      }
+    },
+    {
+      "id": "tanah-abang",
+      "name": "Tanah Abang",
+      "quickStats": {
+        "monsoonIntensity": 85,
+        "drainageEfficiency": 42,
+        "wetlandLoss": 78,
+        "activeAlerts": 15,
+        "populationAtRisk": 28500
+      },
+      "parameters": {
+        "environmental": {
+          "climateWeather": {
+            "monsoonIntensity": 85,
+            "climateChange": 75
+          },
+          "topography": {
+            "topographyDrainage": 38,
+            "siltation": 88,
+            "wetlandLoss": 78
+          },
+          "watershed": {
+            "watersheds": 42,
+            "riverManagement": 45
+          }
+        },
+        "infrastructure": {
+          "critical": {
+            "drainageSystem": 42,
+            "damsQuality": 65,
+            "deterioratingInfrastructure": 78
+          }
+        },
+        "urbanSocial": {
+          "urbanDevelopment": {
+            "urbanization": 96,
+            "encroachments": 85
+          },
+          "population": {
+            "populationScore": 92
+          }
+        },
+        "governance": {
+          "disasterPreparedness": {
+            "ineffectiveDisasterPreparedness": 70
+          },
+          "planningPolicy": {
+            "inadequatePlanning": 72,
+            "politicalFactors": 68
+          }
+        }
+      }
+    },
+    {
+      "id": "gambir",
+      "name": "Gambir",
+      "quickStats": {
+        "monsoonIntensity": 70,
+        "drainageEfficiency": 52,
+        "wetlandLoss": 62,
+        "activeAlerts": 10,
+        "populationAtRisk": 18200
+      },
+      "parameters": {
+        "environmental": {
+          "climateWeather": {
+            "monsoonIntensity": 70,
+            "climateChange": 65
+          },
+          "topography": {
+            "topographyDrainage": 48,
+            "siltation": 78,
+            "wetlandLoss": 62
+          },
+          "watershed": {
+            "watersheds": 55,
+            "riverManagement": 52
+          }
+        },
+        "infrastructure": {
+          "critical": {
+            "drainageSystem": 52,
+            "damsQuality": 70,
+            "deterioratingInfrastructure": 65
+          }
+        },
+        "urbanSocial": {
+          "urbanDevelopment": {
+            "urbanization": 90,
+            "encroachments": 72
+          },
+          "population": {
+            "populationScore": 78
+          }
+        },
+        "governance": {
+          "disasterPreparedness": {
+            "ineffectiveDisasterPreparedness": 58
+          },
+          "planningPolicy": {
+            "inadequatePlanning": 58,
+            "politicalFactors": 55
+          }
+        }
+      }
+    },
+    {
+      "id": "kemayoran",
+      "name": "Kemayoran",
+      "quickStats": {
+        "monsoonIntensity": 82,
+        "drainageEfficiency": 45,
+        "wetlandLoss": 82,
+        "activeAlerts": 16,
+        "populationAtRisk": 32500
+      },
+      "parameters": {
+        "environmental": {
+          "climateWeather": {
+            "monsoonIntensity": 82,
+            "climateChange": 72
+          },
+          "topography": {
+            "topographyDrainage": 35,
+            "siltation": 85,
+            "wetlandLoss": 82
+          },
+          "watershed": {
+            "watersheds": 45,
+            "riverManagement": 42
+          }
+        },
+        "infrastructure": {
+          "critical": {
+            "drainageSystem": 45,
+            "damsQuality": 68,
+            "deterioratingInfrastructure": 75
+          }
+        },
+        "urbanSocial": {
+          "urbanDevelopment": {
+            "urbanization": 95,
+            "encroachments": 88
+          },
+          "population": {
+            "populationScore": 88
+          }
+        },
+        "governance": {
+          "disasterPreparedness": {
+            "ineffectiveDisasterPreparedness": 68
+          },
+          "planningPolicy": {
+            "inadequatePlanning": 68,
+            "politicalFactors": 65
+          }
+        }
+      }
+    },
+    {
+      "id": "senen",
+      "name": "Senen",
+      "quickStats": {
+        "monsoonIntensity": 75,
+        "drainageEfficiency": 48,
+        "wetlandLoss": 68,
+        "activeAlerts": 11,
+        "populationAtRisk": 21800
+      },
+      "parameters": {
+        "environmental": {
+          "climateWeather": {
+            "monsoonIntensity": 75,
+            "climateChange": 68
+          },
+          "topography": {
+            "topographyDrainage": 42,
+            "siltation": 82,
+            "wetlandLoss": 68
+          },
+          "watershed": {
+            "watersheds": 48,
+            "riverManagement": 48
+          }
+        },
+        "infrastructure": {
+          "critical": {
+            "drainageSystem": 48,
+            "damsQuality": 72,
+            "deterioratingInfrastructure": 70
+          }
+        },
+        "urbanSocial": {
+          "urbanDevelopment": {
+            "urbanization": 92,
+            "encroachments": 78
+          },
+          "population": {
+            "populationScore": 85
+          }
+        },
+        "governance": {
+          "disasterPreparedness": {
+            "ineffectiveDisasterPreparedness": 62
+          },
+          "planningPolicy": {
+            "inadequatePlanning": 62,
+            "politicalFactors": 58
+          }
+        }
+      }
+    },
+    {
+      "id": "cempaka-putih",
+      "name": "Cempaka Putih",
+      "quickStats": {
+        "monsoonIntensity": 62,
+        "drainageEfficiency": 68,
+        "wetlandLoss": 52,
+        "activeAlerts": 6,
+        "populationAtRisk": 12500
+      },
+      "parameters": {
+        "environmental": {
+          "climateWeather": {
+            "monsoonIntensity": 62,
+            "climateChange": 58
+          },
+          "topography": {
+            "topographyDrainage": 58,
+            "siltation": 65,
+            "wetlandLoss": 52
+          },
+          "watershed": {
+            "watersheds": 62,
+            "riverManagement": 58
+          }
+        },
+        "infrastructure": {
+          "critical": {
+            "drainageSystem": 68,
+            "damsQuality": 78,
+            "deterioratingInfrastructure": 55
+          }
+        },
+        "urbanSocial": {
+          "urbanDevelopment": {
+            "urbanization": 82,
+            "encroachments": 62
+          },
+          "population": {
+            "populationScore": 72
+          }
+        },
+        "governance": {
+          "disasterPreparedness": {
+            "ineffectiveDisasterPreparedness": 52
+          },
+          "planningPolicy": {
+            "inadequatePlanning": 52,
+            "politicalFactors": 48
+          }
+        }
+      }
+    },
+    {
+      "id": "johar-baru",
+      "name": "Johar Baru",
+      "quickStats": {
+        "monsoonIntensity": 78,
+        "drainageEfficiency": 48,
+        "wetlandLoss": 72,
+        "activeAlerts": 13,
+        "populationAtRisk": 25800
+      },
+      "parameters": {
+        "environmental": {
+          "climateWeather": {
+            "monsoonIntensity": 78,
+            "climateChange": 70
+          },
+          "topography": {
+            "topographyDrainage": 40,
+            "siltation": 80,
+            "wetlandLoss": 72
+          },
+          "watershed": {
+            "watersheds": 50,
+            "riverManagement": 50
+          }
+        },
+        "infrastructure": {
+          "critical": {
+            "drainageSystem": 48,
+            "damsQuality": 70,
+            "deterioratingInfrastructure": 72
+          }
+        },
+        "urbanSocial": {
+          "urbanDevelopment": {
+            "urbanization": 93,
+            "encroachments": 80
+          },
+          "population": {
+            "populationScore": 86
+          }
+        },
+        "governance": {
+          "disasterPreparedness": {
+            "ineffectiveDisasterPreparedness": 65
+          },
+          "planningPolicy": {
+            "inadequatePlanning": 65,
+            "politicalFactors": 60
+          }
+        }
+      }
+    },
+    {
+      "id": "sawah-besar",
+      "name": "Sawah Besar",
+      "quickStats": {
+        "monsoonIntensity": 92,
+        "drainageEfficiency": 35,
+        "wetlandLoss": 88,
+        "activeAlerts": 20,
+        "populationAtRisk": 38200
+      },
+      "parameters": {
+        "environmental": {
+          "climateWeather": {
+            "monsoonIntensity": 92,
+            "climateChange": 82
+          },
+          "topography": {
+            "topographyDrainage": 28,
+            "siltation": 95,
+            "wetlandLoss": 88
+          },
+          "watershed": {
+            "watersheds": 35,
+            "riverManagement": 38
+          }
+        },
+        "infrastructure": {
+          "critical": {
+            "drainageSystem": 35,
+            "damsQuality": 58,
+            "deterioratingInfrastructure": 85
+          }
+        },
+        "urbanSocial": {
+          "urbanDevelopment": {
+            "urbanization": 98,
+            "encroachments": 92
+          },
+          "population": {
+            "populationScore": 95
+          }
+        },
+        "governance": {
+          "disasterPreparedness": {
+            "ineffectiveDisasterPreparedness": 78
+          },
+          "planningPolicy": {
+            "inadequatePlanning": 78,
+            "politicalFactors": 72
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "version": "3.0",
+    "lastUpdated": "2024-12-07",
+    "region": "Central Jakarta",
+    "totalDistricts": 8,
+    "parameterCategories": [
+      "environmental",
+      "infrastructure",
+      "urbanSocial",
+      "governance"
+    ],
+    "totalParameters": 16,
+    "parametersList": [
+      "monsoonIntensity",
+      "climateChange",
+      "topographyDrainage",
+      "siltation",
+      "wetlandLoss",
+      "watersheds",
+      "riverManagement",
+      "drainageSystem",
+      "damsQuality",
+      "deterioratingInfrastructure",
+      "urbanization",
+      "encroachments",
+      "populationScore",
+      "ineffectiveDisasterPreparedness",
+      "inadequatePlanning",
+      "politicalFactors"
+    ],
+    "riskLevels": [
+      "LOW",
+      "MEDIUM",
+      "HIGH",
+      "CRITICAL"
+    ],
+    "note": "riskLevel, riskColor, and emoji are now calculated dynamically by the frontend based on AI flood probability"
+  }
+}
