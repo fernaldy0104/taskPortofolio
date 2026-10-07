@@ -1,5 +1,0 @@
-1) Train the AI Model and Run the API server through dashboard > model > train_model.py and application.py
-
-(Refer to README)
-
-2) Start the website by running index.html in a server
